@@ -26,7 +26,7 @@ class ViewController: UIViewController {
        
     }
 // 2) Add touchesBegan function to catch screen tap and resign keyboard
-    override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         //Add Below Code from "Code for Steps.txt". Read Comments
         
         //forces resign first responder and hides keyboard
