@@ -1,8 +1,8 @@
 // 1) Add MessageBox function using AlertView
-    func MsgBox(message:NSString)
+    func MsgBox(message:String)
     {
         //Create Alert
-        var alert = UIAlertView()
+       let alert = UIAlertView()
         alert.title = "Alert"
         alert.message = message
         alert.addButtonWithTitle("OK")
@@ -10,7 +10,7 @@
     }
     
 // 2) Add touchesBegan function to catch screen tap and resign keyboard
-    override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         //forces resign first responder and hides keyboard
         txtFirst.endEditing(true)
         txtLast.endEditing(true)
@@ -63,8 +63,8 @@
         
         //Add Below Code. Read Comments
         
-        //Looks for single or multiple taps
-        var tap:UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "DismissKeyboard")
+      //Looks for single or multiple taps
+        let tap:UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "DismissKeyboard")
         //Adds tap gesture to ScrollView which will call DismissKeyboard and hide keyboard
         ScrollView.addGestureRecognizer(tap)
         //gets ScreenSize of current device
@@ -73,6 +73,7 @@
         ScrollView.frame = CGRectMake(0, 50, size.width, size.height)
         //Set focus on txtFirst
         txtFirst.becomeFirstResponder()
+
     }
     
 // 10) Default didReceiveMemoryWarning Function to dispose of memory automatically.Leave this function alone
@@ -115,7 +116,7 @@
     @IBAction func btnSave(sender: UIButton) {
         //Add Below Code. Read Comments
         
-        //hide keyboard
+       //hide keyboard
         DismissKeyboard()
         
         //validation that all fields are entered
@@ -136,7 +137,7 @@
             //format text
             
             //existing contents of txtContacts, newline, txtFirst, newline, txtLast, newline, txtEmail, newline
-            txtContacts.text = "\(txtContacts.text) \n\(txtFirst.text) \n\(txtLast.text) \n\(txtEmail.text)\n"
+            txtContacts.text = "\(txtContacts.text!) \n\(txtFirst.text!) \n\(txtLast.text!) \n\(txtEmail.text!)\n"
             //clear textboxes
             txtFirst.text = ""
             txtLast.text = ""
@@ -153,6 +154,7 @@
             
             //Set ScrollPoint and Go to animated
             ScrollView.setContentOffset(scrollPoint, animated: true)
+
         }
     }
     
